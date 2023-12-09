@@ -180,7 +180,7 @@ export function SideBar(props: {
         <div
           className={styles["sidebar-title"]}
           dangerouslySetInnerHTML={{
-            __html: websiteConfigStore.mainTitle || "AI Chat",
+            __html: websiteConfigStore.mainTitle || "Learnit",
           }}
           data-tauri-drag-region
         ></div>
@@ -191,9 +191,11 @@ export function SideBar(props: {
               websiteConfigStore.subTitle || "Build your own AI assistant.",
           }}
         ></div>
+        {/*
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <NextImage src={ChatBotIcon.src} width={44} height={44} alt="bot" />
         </div>
+        */}
       </div>
 
       <div className={styles["sidebar-header-bar"]}>
