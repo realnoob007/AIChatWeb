@@ -504,7 +504,7 @@ export function ChatActions(props: {
         }
       />
 
-      <ChatAction
+      {/*<ChatAction
         onClick={props.showPromptHints}
         text={Locale.Chat.InputActions.Prompt}
         icon={<PromptIcon />}
@@ -517,6 +517,7 @@ export function ChatActions(props: {
         text={Locale.Chat.InputActions.Masks}
         icon={<MaskIcon />}
       />
+      */}
 
       <ChatAction
         text={Locale.Chat.InputActions.Clear}
@@ -540,6 +541,7 @@ export function ChatActions(props: {
       />
 
       <>
+        {/*
         {props.plugins.map((model) => {
           return (
             <SwitchChatAction
@@ -554,7 +556,7 @@ export function ChatActions(props: {
               value={model.value}
             />
           );
-        })}
+        })}*/}
       </>
     </div>
   );
