@@ -134,7 +134,7 @@ export function useSwitchTheme() {
   }, [config.theme]);
 
   useEffect(() => {
-    document.title = useWebsiteConfig.title || "AI Chat";
+    document.title = useWebsiteConfig.title || "Learnit";
   }, [useWebsiteConfig.title]);
 }
 
