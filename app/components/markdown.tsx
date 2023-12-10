@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import MathJax from 'react-mathjax';
 import "katex/dist/katex.min.css";
 import RemarkMath from "remark-math";
 import RemarkBreaks from "remark-breaks";
@@ -105,31 +106,33 @@ export function PreCode(props: { children: any }) {
 
 function _MarkDownContent(props: { content: string }) {
   return (
-    <ReactMarkdown
-      remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
-      rehypePlugins={[
-        rehypeRaw,
-        RehypeKatex,
-        [
-          RehypeHighlight,
-          {
-            detect: false,
-            ignoreMissing: true,
+    <MathJax.Provider>
+      <ReactMarkdown
+        remarkPlugins={[RemarkMath, RemarkGfm, RemarkBreaks]}
+        rehypePlugins={[
+          rehypeRaw,
+          RehypeKatex,
+          [
+            RehypeHighlight,
+            {
+              detect: false,
+              ignoreMissing: true,
+            },
+          ],
+        ]}
+        components={{
+          pre: PreCode,
+          a: (aProps) => {
+            const href = aProps.href || "";
+            const isInternal = /^\/#/i.test(href);
+            const target = isInternal ? "_self" : aProps.target ?? "_blank";
+            return <a {...aProps} target={target} />;
           },
-        ],
-      ]}
-      components={{
-        pre: PreCode,
-        a: (aProps) => {
-          const href = aProps.href || "";
-          const isInternal = /^\/#/i.test(href);
-          const target = isInternal ? "_self" : aProps.target ?? "_blank";
-          return <a {...aProps} target={target} />;
-        },
-      }}
-    >
-      {props.content}
-    </ReactMarkdown>
+        }}
+      >
+        {props.content}
+      </ReactMarkdown>
+    </MathJax.Provider>
   );
 }
 
