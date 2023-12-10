@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown";
-import MathJax from 'react-mathjax';
+import MathJax from "react-mathjax";
 import "katex/dist/katex.min.css";
 import RemarkMath from "remark-math";
 import RemarkBreaks from "remark-breaks";
