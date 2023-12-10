@@ -198,7 +198,7 @@ export function SideBar(props: {
         */}
       </div>
 
-      <div className={styles["sidebar-header-bar"]}>
+      {/*<div className={styles["sidebar-header-bar"]}>
         <IconButton
           icon={<MaskIcon />}
           text={shouldNarrow ? undefined : Locale.Mask.Name}
@@ -214,6 +214,7 @@ export function SideBar(props: {
           shadow
         />
       </div>
+      */}
 
       <div
         className={styles["sidebar-body"]}
